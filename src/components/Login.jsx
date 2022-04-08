@@ -11,7 +11,7 @@ const Login = () => {
           </div>
           <div className="p-4 flex flex-col justify-around">
             <form>
-              <h2 className="text-4xl font-bold text-center mb-8">BRAND.</h2>
+              <h2 className="text-4xl font-bold text-center mb-8">Cloudy.</h2>
               <div>
                 <input className="border p-2 mr-2" type="text" placeholder="Username" />
                 <input className="border p-2" type="password" placeholder="Password" />
