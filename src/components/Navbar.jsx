@@ -110,15 +110,15 @@ const Navbar = () => {
             className={!nav ? 'hidden' : 'absolute  w-full px-8'}
           >
             <li className="border-b-2 border-zinc-300 w-full">
-              <Link
+              <NavHashLink
                 className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                 onClick={handleClose}
-                to="home"
+                to="/home#home"
                 smooth={true}
                 duration={500}
               >
                 Home
-              </Link>
+              </NavHashLink>
             </li>
             <li className="border-b-2 border-zinc-300 w-full">
               <NavHashLink
