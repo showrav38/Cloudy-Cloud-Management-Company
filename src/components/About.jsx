@@ -3,7 +3,7 @@ import { Fade } from 'react-reveal';
 
 const About = () => {
   return (
-    <div name="about" className="w-full my-32">
+    <div id='abt' name="about" className="w-full my-32">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
           <h2 className="text-5xl font-bold">Trusted by developers across the world</h2>

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import trees from '../assets/trees.jpg';
-
-const Login = () => {
-  const navigate = useNavigate();
+const Register = () => {
   return (
     <div>
       <div className="w-full h-screen flex">
@@ -16,14 +13,13 @@ const Login = () => {
               <h2 className="text-4xl font-bold text-center mb-8">Cloudy.</h2>
               <div>
                 <input className="border p-2 mr-2 w-full mb-4" type="text" placeholder="Username" />
-                <input className="border p-2 w-full mb-4" type="password" placeholder="Password" />
+                <input className="border p-2 w-full mb-4" type="email" placeholder="Email" />
+                <input className="border p-2 w-full col-start-2" type="password" placeholder="Password" />
               </div>
-              <button className="w-full py-2 my-4 bg-green-600 hover:bg-green-500">Sign In</button>
-              <a className="text-center cursor-pointer">Forgot Username or Password?</a>
             </form>
-            <button onClick={() => navigate('/register')} className="px-8 mt-7 py-3">
-              Sign Up
-            </button>
+            <button className="px-8 mt-7 py-3 mt-5">Sign Up</button>
+            <a className="text-center cursor-pointer mt-5">Forgot Username or Password?</a>
+            <button className="w-full py-2 my-4 bg-green-600 hover:bg-green-500">Sign In</button>
           </div>
         </div>
       </div>
@@ -31,4 +27,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

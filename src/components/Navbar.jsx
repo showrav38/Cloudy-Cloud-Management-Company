@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
-
+import { HashLink, NavHashLink } from 'react-router-hash-link';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Zoom } from 'react-reveal';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
-
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate('/login');
+  };
+  const handleRegister = () => {
+    navigate('/register');
+  };
   const handleClose = () => setNav(!nav);
 
   return (
-    <div>
+    <div id="header">
       <Zoom>
         <div
           style={{ background: 'lightblue' }}
@@ -19,67 +26,75 @@ const Navbar = () => {
         >
           <div className="px-2 flex justify-between items-center w-full h-full">
             <div className="flex items-center">
-              <h1 className="text-3xl font-bold mr-4 sm:text-4xl">CLOUDY</h1>
+              <h1 className="text-3xl font-bold mr-4 sm:text-4xl">
+                <NavLink to="/">
+                  <a>CLOUDY</a>
+                </NavLink>
+              </h1>
               <ul className="hidden md:flex">
                 <li>
-                  <Link
-                    to="home"
+                  <NavHashLink
+                    to="home#home"
                     className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                     smooth={true}
                     duration={500}
                   >
                     Home
-                  </Link>
+                  </NavHashLink>
                 </li>
                 <li>
-                  <Link
-                    to="about"
+                  <NavHashLink
+                    to="/home#abt"
                     className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                     smooth={true}
                     offset={-200}
                     duration={500}
                   >
                     About
-                  </Link>
+                  </NavHashLink>
                 </li>
                 <li>
-                  <Link
+                  <NavHashLink as={HashLink}
                     className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
-                    to="support"
+                    to="/home#support"
                     smooth={true}
                     offset={-50}
                     duration={500}
                   >
                     Support
-                  </Link>
+                  </NavHashLink>
                 </li>
                 <li>
-                  <Link
-                    to="platforms"
+                  <NavHashLink as={HashLink}
+                    to="/home#plat"
                     className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                     smooth={true}
                     offset={-100}
                     duration={500}
                   >
                     Platforms
-                  </Link>
+                  </NavHashLink>
                 </li>
                 <li>
-                  <Link
-                    to="pricing"
+                  <NavHashLink as={HashLink}
+                    to="/home#price"
                     className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                     smooth={true}
                     offset={-50}
                     duration={500}
                   >
                     Pricing
-                  </Link>
+                  </NavHashLink>
                 </li>
               </ul>
             </div>
             <div className="hidden md:flex pr-4">
-              <button className="border-none bg-transparent text-black mr-4">Sign In</button>
-              <button className="px-8 py-3">Sign Up</button>
+              <button onClick={handleLogin} className="border-none bg-transparent text-black mr-4">
+                Sign In
+              </button>
+              <button onClick={handleRegister} className="px-8 py-3">
+                Sign Up
+              </button>
             </div>
             <div className="md:hidden mr-4 '" onClick={handleClick}>
               {!nav ? (
@@ -106,57 +121,65 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="border-b-2 border-zinc-300 w-full">
-              <Link
+              <NavHashLink
                 className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                 onClick={handleClose}
-                to="about"
+                to="/home#abt"
                 smooth={true}
                 offset={-200}
                 duration={500}
               >
                 About
-              </Link>
+              </NavHashLink>
             </li>
             <li className="border-b-2 border-zinc-300 w-full">
-              <Link
+              <NavHashLink
                 className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                 onClick={handleClose}
-                to="support"
+                to="/home#support"
                 smooth={true}
                 offset={-50}
                 duration={500}
               >
                 Support
-              </Link>
+              </NavHashLink>
             </li>
             <li className="border-b-2 border-zinc-300 w-full">
-              <Link
+              <NavHashLink
                 className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                 onClick={handleClose}
-                to="platforms"
+                to="/home#plat"
                 smooth={true}
                 offset={-100}
                 duration={500}
               >
                 Platforms
-              </Link>
+              </NavHashLink>
             </li>
             <li className="border-b-2 border-zinc-300 w-full">
-              <Link
+              <NavHashLink
                 className="cursor-pointer hover:border-b-4 border-indigo-500 hover:pb-2"
                 onClick={handleClose}
-                to="pricing"
+                to="/home#price"
                 smooth={true}
                 offset={-50}
                 duration={500}
               >
                 Pricing
-              </Link>
+              </NavHashLink>
             </li>
 
             <div className="flex flex-col my-4">
-              <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">Sign In</button>
-              <button className="px-8 py-3">Sign Up</button>
+              <button 
+                onClick={handleRegister}
+                className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
+              >
+                Sign In
+              </button>
+
+              <button onClick={handleLogin} className="px-8 py-3">
+                Sign Up
+              </button>
             </div>
           </ul>
         </div>
